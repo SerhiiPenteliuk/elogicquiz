@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ua_UA">
+<head>
+    <title>Сів поїхав</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neucha">
+    <style>
+        body {
+            font-family: "Neucha", sans-serif;
+            font-size: 28px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hidden1 {
+            visibility: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: auto;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            margin-bottom: 60px;
+        }
+
+        button {
+            appearance: none;
+            background-color: #000000;
+            border: 2px solid #1A1A1A;
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            will-change: transform;
+        }
+
+        button:hover {
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+        }
+
+        p {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .buttons-block {
+            text-align: center;
+        }
+
+        #time {
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>ЄБЄЙШЕ ШОДЕКОЛИ</h1>
+    </div>
+    <table id="table">
+        <tr>
+            <th>Логіка?</th>
+            <th>Think about it...</th>
+            <th>Ху із Ху</th>
+            <th>Спорт?</th>
+            <th>Рандомна шняга</th>
+        </tr>
+        <tr>
+            <td class="cell" data-points="100">100</td>
+            <td class="cell" data-points="100">100</td>
+            <td class="cell" data-points="100">100</td>
+            <td class="cell" data-points="100">100</td>
+            <td class="cell" data-points="100">100</td>
+        </tr>
+        <tr>
+            <td class="cell" data-points="200">200</td>
+            <td class="cell" data-points="200">200</td>
+            <td class="cell" data-points="200">200</td>
+            <td class="cell" data-points="200">200</td>
+            <td class="cell" data-points="200">200</td>
+        </tr>
+        <tr>
+            <td class="cell" data-points="300">300</td>
+            <td class="cell" data-points="300">300</td>
+            <td class="cell" data-points="300">300</td>
+            <td class="cell" data-points="300">300</td>
+            <td class="cell" data-points="300">300</td>
+        </tr>
+        <tr>
+            <td class="cell" data-points="400">400</td>
+            <td class="cell" data-points="400">400</td>
+            <td class="cell" data-points="400">400</td>
+            <td class="cell" data-points="400">400</td>
+            <td class="cell" data-points="400">400</td>
+        </tr>
+        <tr>
+            <td class="cell" data-points="500">500</td>
+            <td class="cell" data-points="500">500</td>
+            <td class="cell" data-points="500">500</td>
+            <td class="cell" data-points="500">500</td>
+            <td class="cell" data-points="500">500</td>
+        </tr>
+    </table>
+
+    <div>
+        <span id="time" class="hidden">01:00</span>
+    </div>
+
+    <div id="question-page" class="hidden">
+        <p id="question-text"></p>
+        <div class="buttons-block">
+            <button id="show-answer-btn">Show Answer</button>
+            <button id="return-btn">Return to Main Table</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedCell;
+    let questionPage = document.getElementById("question-page");
+    let questionTable = document.getElementById("table");
+    let questionText = document.getElementById("question-text");
+    let showAnswerBtn = document.getElementById("show-answer-btn");
+    let returnBtn = document.getElementById("return-btn");
+    let cells = document.querySelectorAll(".cell");
+    let display = document.querySelector('#time');
+    let interval;
+
+    // Define your quiz data
+    const quizData = [
+        {
+            points: 100,
+            questions: [
+                "Питання 1:",
+                "Question 2 for 100 points",
+                "Question 3 for 100 points",
+                "Question 4 for 100 points",
+                "Question 5 for 100 points"
+            ],
+            answers: [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5"
+            ],
+            askedQuestions: []
+        },
+        {
+            points: 200,
+            questions: [
+                "Question 1 for 200 points",
+                "Question 2 for 200 points",
+                "Question 3 for 200 points",
+                "Question 4 for 200 points",
+                "Question 5 for 200 points"
+            ],
+            answers: [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5"
+            ],
+            askedQuestions: []
+        },
+        {
+            points: 300,
+            questions: [
+                "Question 1 for 300 points",
+                "Question 2 for 300 points",
+                "Question 3 for 300 points",
+                "Question 4 for 300 points",
+                "Question 5 for 300 points"
+            ],
+            answers: [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5"
+            ],
+            askedQuestions: []
+        },
+        {
+            points: 400,
+            questions: [
+                "Question 1 for 400 points",
+                "Question 2 for 400 points",
+                "Question 3 for 400 points",
+                "Question 4 for 400 points",
+                "Question 5 for 400 points"
+            ],
+            answers: [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5"
+            ],
+            askedQuestions: []
+        },
+        {
+            points: 500,
+            questions: [
+                "Question 1 for 500 points",
+                "Question 2 for 500 points",
+                "Question 3 for 500 points",
+                "Question 4 for 500 points",
+                "Question 5 for 500 points"
+            ],
+            answers: [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5"
+            ],
+            askedQuestions: []
+        },
+    ];
+
+    cells.forEach((element) => {
+        element.addEventListener('click', function () {
+            selectedCell = this;
+            showAnswerBtn.classList.remove("hidden");
+            display.classList.remove("hidden");
+            questionTable.classList.add('hidden');
+            showQuestionPage();
+            startTimer();
+        });
+    });
+
+    showAnswerBtn.addEventListener("click", function () {
+        showAnswer();
+    });
+
+    returnBtn.addEventListener("click", function () {
+        hideQuestionPage();
+        display.classList.add('hidden');
+        questionTable.classList.remove('hidden');
+        clearInterval(interval);
+    });
+
+    function showQuestionPage() {
+        var points = selectedCell.getAttribute("data-points");
+        var question = getQuestionByPoints(points);
+        questionText.innerHTML = question;
+        questionPage.classList.remove("hidden");
+    }
+
+    function hideQuestionPage() {
+        questionPage.classList.add("hidden");
+        questionText.innerHTML = "";
+        selectedCell.classList.add("hidden1");
+    }
+
+    function showAnswer() {
+        var points = selectedCell.getAttribute("data-points");
+        var answer = getAnswerByPoints(points);
+        questionText.innerHTML = "Answer: " + answer;
+        showAnswerBtn.classList.add("hidden");
+        display.classList.add('hidden');
+    }
+
+    function getQuestionByPoints(points) {
+        var question = "";
+        for (var i = 0; i < quizData.length; i++) {
+            if (quizData[i].points == points) {
+                var questions = quizData[i].questions;
+                var askedQuestions = quizData[i].askedQuestions;
+                var remainingQuestions = questions.filter(function (question) {
+                    return !askedQuestions.includes(question);
+                });
+                if (remainingQuestions.length === 0) {
+                    // Reset asked questions if all questions have been asked
+                    quizData[i].askedQuestions = [];
+                    remainingQuestions = questions;
+                }
+                var randomIndex = Math.floor(Math.random() * remainingQuestions.length);
+                question = remainingQuestions[randomIndex];
+                quizData[i].askedQuestions.push(question);
+                break;
+            }
+        }
+        return question;
+    }
+
+    function getAnswerByPoints(points) {
+        var answer = "";
+        for (var i = 0; i < quizData.length; i++) {
+            if (quizData[i].points == points) {
+                var questions = quizData[i].questions;
+                var answers = quizData[i].answers;
+                var questionIndex = questions.indexOf(questionText.innerHTML);
+                answer = answers[questionIndex];
+                break;
+            }
+        }
+        return answer;
+    }
+
+    function startTimer() {
+        clearInterval(interval);
+        let timer = 60, minutes, seconds;
+        interval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>
