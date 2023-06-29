@@ -101,39 +101,39 @@
             <th>Рандомна шняга</th>
         </tr>
         <tr>
-            <td class="cell" data-points="100">100</td>
-            <td class="cell" data-points="100">100</td>
-            <td class="cell" data-points="100">100</td>
-            <td class="cell" data-points="100">100</td>
-            <td class="cell" data-points="100">100</td>
+            <td class="cell" data-category="1" data-points="100">100</td>
+            <td class="cell" data-category="2" data-points="100">100</td>
+            <td class="cell" data-category="3" data-points="100">100</td>
+            <td class="cell" data-category="4" data-points="100">100</td>
+            <td class="cell" data-category="5" data-points="100">100</td>
         </tr>
         <tr>
-            <td class="cell" data-points="200">200</td>
-            <td class="cell" data-points="200">200</td>
-            <td class="cell" data-points="200">200</td>
-            <td class="cell" data-points="200">200</td>
-            <td class="cell" data-points="200">200</td>
+            <td class="cell" data-category="1" data-points="200">200</td>
+            <td class="cell" data-category="2" data-points="200">200</td>
+            <td class="cell" data-category="3" data-points="200">200</td>
+            <td class="cell" data-category="4" data-points="200">200</td>
+            <td class="cell" data-category="5" data-points="200">200</td>
         </tr>
         <tr>
-            <td class="cell" data-points="300">300</td>
-            <td class="cell" data-points="300">300</td>
-            <td class="cell" data-points="300">300</td>
-            <td class="cell" data-points="300">300</td>
-            <td class="cell" data-points="300">300</td>
+            <td class="cell" data-category="1" data-points="300">300</td>
+            <td class="cell" data-category="2" data-points="300">300</td>
+            <td class="cell" data-category="3" data-points="300">300</td>
+            <td class="cell" data-category="4" data-points="300">300</td>
+            <td class="cell" data-category="5" data-points="300">300</td>
         </tr>
         <tr>
-            <td class="cell" data-points="400">400</td>
-            <td class="cell" data-points="400">400</td>
-            <td class="cell" data-points="400">400</td>
-            <td class="cell" data-points="400">400</td>
-            <td class="cell" data-points="400">400</td>
+            <td class="cell" data-category="1" data-points="400">400</td>
+            <td class="cell" data-category="2" data-points="400">400</td>
+            <td class="cell" data-category="3" data-points="400">400</td>
+            <td class="cell" data-category="4" data-points="400">400</td>
+            <td class="cell" data-category="5" data-points="400">400</td>
         </tr>
         <tr>
-            <td class="cell" data-points="500">500</td>
-            <td class="cell" data-points="500">500</td>
-            <td class="cell" data-points="500">500</td>
-            <td class="cell" data-points="500">500</td>
-            <td class="cell" data-points="500">500</td>
+            <td class="cell" data-category="1" data-points="500">500</td>
+            <td class="cell" data-category="2" data-points="500">500</td>
+            <td class="cell" data-category="3" data-points="500">500</td>
+            <td class="cell" data-category="4" data-points="500">500</td>
+            <td class="cell" data-category="5" data-points="500">500</td>
         </tr>
     </table>
 
@@ -164,95 +164,95 @@
     // Define your quiz data
     const quizData = [
         {
-            points: 100,
+            category: 1,
             questions: [
-                "Питання 100 для логіки",
-                "Питання 100 для подумай",
-                "Питання 100 для ху із ху",
-                "Питання 100 для спорт",
-                "Питання 100 для рандом"
+                "На що схожа половина яблука?",
+                "Що у людини під ногами, коли вона іде по мосту?",
+                "Де бувають ріки без води, а міста без будинків?",
+                "Коли чорній кішці легше пробратись в будинок?",
+                "На яке запитання не можна дати позитивної відповіді?"
             ],
             answers: [
-                "Відповідь 100 для логіки",
-                "Відповідь 100 для подумай",
-                "Відповідь 100 для ху із ху",
-                "Відповідь 100 для спорт",
-                "Відповідь 100 для рандом"
+                "На другу половину",
+                "Підошва взуття",
+                "На карті",
+                "Коли відчинені двері",
+                "Ти спиш?"
             ],
             askedQuestions: []
         },
         {
-            points: 200,
+            category: 2,
             questions: [
-                "Question 1 for 200 points",
-                "Question 2 for 200 points",
-                "Question 3 for 200 points",
-                "Question 4 for 200 points",
-                "Question 5 for 200 points"
+                "Якщо 5 котів ловлять 5 мишей за 5 хвилин, то скільки треба одному коту, щоб зловити мишу?",
+                "Скільки місяців у році мають 28 днів?",
+                "На обох руках 10 пальців, скільки пальців на 10 руках?",
+                "Що не може збільшити лупа в трикутнику?",
+                "Який газ використовується для насичення газових напоїв?"
             ],
             answers: [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4",
-                "Answer 5"
+                "5 хвилин",
+                "Усі",
+                "50",
+                "кути",
+                "Вуглекислий газ (СО2)"
             ],
             askedQuestions: []
         },
         {
-            points: 300,
+            category: 3,
             questions: [
-                "Question 1 for 300 points",
-                "Question 2 for 300 points",
-                "Question 3 for 300 points",
-                "Question 4 for 300 points",
-                "Question 5 for 300 points"
+                "Хто сформував закон Всесвітнього тяжіння?",
+                "Хто першим сказав, що Земля обертається навколо Сонця?",
+                "Хто першим здійснив кругосвітню подорож?",
+                "Хто винайшов телеграфний код?",
+                "Хто створив першу батарейку (електричну)?"
             ],
             answers: [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4",
-                "Answer 5"
+                "Ісаак Ньютон",
+                "Галілео Галілей",
+                "Магеллан",
+                "Морзе",
+                "Вольт"
             ],
             askedQuestions: []
         },
         {
-            points: 400,
+            category: 4,
             questions: [
-                "Question 1 for 400 points",
-                "Question 2 for 400 points",
-                "Question 3 for 400 points",
-                "Question 4 for 400 points",
-                "Question 5 for 400 points"
+                "Який футбольний клуб визнано найкращим у світі?",
+                "Звідки до нас прийшли Олімпійські ігри?",
+                "Як прозвали футбольний клуб \"Манчестер Юнайтед\"?",
+                "Яка країна є батьківщиною футболу та виграла найбільше чемпіонатів світу?",
+                "Яка гра з використанням кийки та кульки відбувається на газоні з використанням оточуючих перешкод?"
             ],
             answers: [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4",
-                "Answer 5"
+                "Реал Мадрид",
+                "Греція",
+                "\"Червоні дияволи\"",
+                "Бразилія",
+                "Гольф"
             ],
             askedQuestions: []
         },
         {
-            points: 500,
+            category: 5,
             questions: [
-                "Question 1 for 500 points",
-                "Question 2 for 500 points",
-                "Question 3 for 500 points",
-                "Question 4 for 500 points",
-                "Question 5 for 500 points"
+                "Яка смішна рибка з мультфільму \"У пошуках Немо\" ніколи не знала, де вона знаходиться?",
+                "Яка країна відома своїми винами та сиру, але ніколи не виграла Чемпіонат світу з футболу?",
+                "Чиї хромосоми визначають стать дитини?",
+                "Як називається приз, який у США дається найгіршій кінострічці?",
+                "Хто сильніший – людина чи мурашка?"
             ],
             answers: [
-                "Answer 1",
-                "Answer 2",
-                "Answer 3",
-                "Answer 4",
-                "Answer 5"
+                "Дорі",
+                "Італія(нєєє)",
+                "Батька",
+                "Золота малина",
+                "Людина піднімає вантаж, менший за свою вагу, а мурашка – у 100 разів більший. Отже, мурашка сильніша"
             ],
             askedQuestions: []
-        },
+        }
     ];
 
     cells.forEach((element) => {
@@ -279,7 +279,8 @@
 
     function showQuestionPage() {
         let points = selectedCell.getAttribute("data-points");
-        let question = getQuestionByPoints(points);
+        let category = selectedCell.getAttribute("data-category");
+        let question = getQuestionByPointsAndCategory(points, category);
         questionText.innerHTML = question;
         questionPage.classList.remove("hidden");
     }
@@ -292,16 +293,16 @@
 
     function showAnswer() {
         let points = selectedCell.getAttribute("data-points");
-        let answer = getAnswerByPoints(points);
-        questionText.innerHTML = "Answer: " + answer;
+        let answer = getAnswerByPointsAndCategory(points);
+        questionText.innerHTML = answer;
         showAnswerBtn.classList.add("hidden");
         display.classList.add('hidden');
     }
 
-    function getQuestionByPoints(points) {
+    function getQuestionByPointsAndCategory(points, category) {
         let question = "";
         for (let i = 0; i < quizData.length; i++) {
-            if (quizData[i].points == points) {
+            if (quizData[i].category == category) {
                 let questions = quizData[i].questions;
                 let askedQuestions = quizData[i].askedQuestions;
                 let remainingQuestions = questions.filter(function (question) {
@@ -321,10 +322,11 @@
         return question;
     }
 
-    function getAnswerByPoints(points) {
+    function getAnswerByPointsAndCategory(points) {
         let answer = "";
+        let category = selectedCell.getAttribute("data-category");
         for (let i = 0; i < quizData.length; i++) {
-            if (quizData[i].points == points) {
+            if (quizData[i].category == category) {
                 let questions = quizData[i].questions;
                 let answers = quizData[i].answers;
                 let questionIndex = questions.indexOf(questionText.innerHTML);
